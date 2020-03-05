@@ -7,4 +7,8 @@ import { Entity } from 'typeorm';
 export class User extends AccountsUser {
   @Field(type => ID)
   public id = super.id;
+
+  // @OneToMany(() => Sheep)
+  // @RelayedConnection(() => Sheep)
+  // public sheeps: Sheep[];
 }

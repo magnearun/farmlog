@@ -2,8 +2,10 @@ import { AccountsModule } from '@accounts/graphql-api';
 import { AccountsPassword } from '@accounts/password';
 import { AccountsServer } from '@accounts/server';
 import { AccountsTypeorm } from '@accounts/typeorm';
+import { TypeOrmConnection } from '@auto-relay/typeorm';
 import * as Sentry from '@sentry/node';
 import { ApolloServer, makeExecutableSchema } from 'apollo-server-express';
+import { AutoRelayConfig } from 'auto-relay';
 import cors from 'cors';
 import express from 'express';
 import { GraphQLError } from 'graphql';
@@ -19,11 +21,18 @@ import { Sheep } from './entities/sheep';
 import { SheepResolver } from './resolvers/sheep-resolver';
 import { UserResolver } from './resolvers/user-resolver';
 import { Context } from './types/interfaces/Context';
+import { BaseRelayConnection } from './types/objects/BaseRelayConnection';
 import { log } from './utils/log';
 
 const { MAILGUN_API_KEY, MAILGUN_DOMAIN } = process.env;
 
 console.log({ MAILGUN_API_KEY, MAILGUN_DOMAIN });
+
+// tslint:disable-next-line: no-unused-expression
+new AutoRelayConfig({
+  orm: () => TypeOrmConnection,
+  extends: { connection: () => BaseRelayConnection },
+});
 
 let mailgun;
 

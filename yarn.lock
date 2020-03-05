@@ -76,6 +76,11 @@
   resolved "https://registry.yarnpkg.com/@apollographql/graphql-playground-html/-/graphql-playground-html-1.6.24.tgz#3ce939cb127fb8aaa3ffc1e90dff9b8af9f2e3dc"
   integrity sha512-8GqG48m1XqyXh4mIZrtB5xOhUwSsh1WsrrsaZQOEYYql3YN9DEu9OOSg0ILzXHZo/h2Q74777YE4YzlArQzQEQ==
 
+"@auto-relay/typeorm@^0.12.5":
+  version "0.12.5"
+  resolved "https://registry.yarnpkg.com/@auto-relay/typeorm/-/typeorm-0.12.5.tgz#e0a23e0573bc61448a2ebde73657f4ce8d4d6a01"
+  integrity sha512-Jk8U1nFTMYHoAJPgdKvKIA0y4Fnk9eUBXAOltb1odGsSJOdiMrF6v7Rdh9/9MI6kxea3kLcY/a6NSjbVqZtjjA==
+
 "@babel/code-frame@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"
@@ -474,6 +479,11 @@
   integrity sha512-Cu5T7RFV54eZdToPXcRKwn7rB0hImbkvLdAmno6mKkoV5s0xDgo9K0PBvftqp8Gg2aDR/B5p+ZjR6xDiSQ42sA==
   dependencies:
     tslib "1.9.3"
+
+"@girin/connection@^0.5.2-alpha.0":
+  version "0.5.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/@girin/connection/-/connection-0.5.2-alpha.0.tgz#464389329677b56653003a55f0c18a4843dc8f45"
+  integrity sha512-RtfmfGYAMLptwUupKB/BIqpkTxqnFcU/5wRVUWRE5oaDTM6DQZeNDuKixsclNdvEPkuqdT8tai6gq5CmwOWFHw==
 
 "@google-cloud/common@^0.32.0":
   version "0.32.1"
@@ -1882,6 +1892,14 @@ atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+
+auto-relay@^0.12.5:
+  version "0.12.5"
+  resolved "https://registry.yarnpkg.com/auto-relay/-/auto-relay-0.12.5.tgz#24d71dd47bf298c3612037ce65fb97914c61149f"
+  integrity sha512-vQb+th7j3yxwvR9Jh2JM1xb1Ew38T2JNeeO+DO6jGRLhVKY11y1F6geI6/8xpDD8WXo04J8zPbX89UGG5Kq7zg==
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+    typedi "^0.8.0"
 
 aws-sign2@~0.7.0:
   version "0.7.0"
@@ -3947,6 +3965,13 @@ graphql-query-complexity@^0.2.3:
   integrity sha512-XLvEsqGTJmJmgof8u5NjIkBHL75b4Inw1F8JQ3jGRBhr3hVFx6aWOTL7C2aknp1uIh8dRmqwzrb9gas2NLHnfA==
   dependencies:
     lodash.get "^4.4.2"
+
+graphql-relay@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/graphql-relay/-/graphql-relay-0.6.0.tgz#18ec36b772cfcb3dbb9bd369c3f8004cf42c7b93"
+  integrity sha512-OVDi6C9/qOT542Q3KxZdXja3NrDvqzbihn1B44PH8P/c5s0Q90RyQwT6guhGqXqbYEH6zbeLJWjQqiYvcg2vVw==
+  dependencies:
+    prettier "^1.16.0"
 
 graphql-subscriptions@1.0.0:
   version "1.0.0"
@@ -6869,6 +6894,11 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
+prettier@^1.16.0:
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
+  integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
+
 prettier@^1.18.2:
   version "1.18.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.18.2.tgz#6823e7c5900017b4bd3acf46fe9ac4b4d7bda9ea"
@@ -8427,6 +8457,13 @@ typedi@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/typedi/-/typedi-0.8.0.tgz#d8e203bd1d41a96e2b0a5c6295147d74b2b2d03e"
   integrity sha512-/c7Bxnm6eh5kXx2I+mTuO+2OvoWni5+rXA3PhXwVWCtJRYmz3hMok5s1AKLzoDvNAZqj/Q/acGstN0ri5aQoOA==
+
+typeorm-cursor-connection@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/typeorm-cursor-connection/-/typeorm-cursor-connection-0.6.0.tgz#4d95999518a4a7b129b01889bf20c241957c9323"
+  integrity sha512-51qMqSEckauGxzeSEnMTTMeTEwBclmPqfPf0NXk1rjzKQCjIRiPstJhxX2r1EWlChnSLaQDy/xMW66cTZtmEMg==
+  dependencies:
+    "@girin/connection" "^0.5.2-alpha.0"
 
 typeorm-typedi-extensions@^0.2.3:
   version "0.2.3"

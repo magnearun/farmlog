@@ -1,4 +1,9 @@
 import {
+  RelayedQuery,
+  RelayLimitOffset,
+  RelayLimitOffsetArgs,
+} from 'auto-relay';
+import {
   Arg,
   Ctx,
   FieldResolver,
@@ -8,14 +13,13 @@ import {
   Resolver,
   Root,
 } from 'type-graphql';
-import { Repository } from 'typeorm';
+import { FindConditions, Raw, Repository } from 'typeorm';
 import { InjectRepository } from 'typeorm-typedi-extensions';
-import { Sheep } from '../entities/sheep';
+import { Gender, Sheep } from '../entities/sheep';
 import { User } from '../entities/user';
 import { SheepInput } from '../types/inputs/sheep-input';
 import { Context } from '../types/interfaces/Context';
 import { Authorized } from '../utils/authorized';
-
 @Resolver(of => Sheep)
 export class SheepResolver {
   constructor(
@@ -31,10 +35,51 @@ export class SheepResolver {
     return this.sheepRepository.findOne(sheepId);
   }
 
-  @Authorized()
-  @Query(returns => [Sheep])
-  public sheeps(): Promise<Sheep[]> {
-    return this.sheepRepository.find();
+  @RelayedQuery(() => Sheep)
+  public async sheeps(
+    @Ctx() { userId }: Context,
+    @RelayLimitOffset() { limit, offset }: RelayLimitOffsetArgs
+  ): Promise<[Sheep[], number]> {
+    return this.sheepRepository.findAndCount({
+      where: {
+        userId,
+      },
+      skip: offset,
+      take: limit,
+      order: {
+        createdAt: 'DESC',
+      },
+    });
+  }
+
+  @RelayedQuery(() => Sheep)
+  public async rams(
+    @Ctx() { userId }: Context,
+    @RelayLimitOffset() { limit, offset }: RelayLimitOffsetArgs,
+    @Arg('query') query?: string
+  ): Promise<[Sheep[], number]> {
+    const where = {
+      userId,
+      gender: Gender.male,
+    } as FindConditions<Sheep>;
+
+    return this.sheepRepository.findAndCount({
+      where: [
+        {
+          ...where,
+          name: Raw((alias: any) => `${alias} ILIKE '%${query}%'`),
+        },
+        {
+          ...where,
+          tag: Raw((alias: any) => `${alias} ILIKE '%${query}%'`),
+        },
+      ],
+      skip: offset,
+      take: limit,
+      order: {
+        createdAt: 'DESC',
+      },
+    });
   }
 
   @Authorized()

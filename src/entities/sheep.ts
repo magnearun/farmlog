@@ -1,5 +1,12 @@
 import { Field, ID, ObjectType, registerEnumType } from 'type-graphql';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 export enum Gender {
   male,
@@ -11,18 +18,21 @@ registerEnumType(Gender, { name: 'Gender' });
 @Entity()
 @ObjectType()
 export class Sheep {
+  @PrimaryGeneratedColumn('uuid')
   @Field(type => ID)
-  @PrimaryGeneratedColumn()
-  public readonly id: number;
+  public id: string;
 
-  @Field(type => ID)
-  public readonly tagId: string;
+  @Field(type => String)
+  @Column()
+  public tag: string;
 
-  @Field(type => Number)
-  public readonly yearOfBirth: number;
+  @Field(type => Date)
+  @Column()
+  public dateOfBirth: Date;
 
   @Field(type => Gender)
-  public readonly gender: Gender;
+  @Column()
+  public gender: Gender;
 
   @Field({ nullable: true })
   @Column({ nullable: true })
@@ -52,4 +62,12 @@ export class Sheep {
 
   @Column({ nullable: true })
   public userId: string;
+
+  @CreateDateColumn()
+  @Field(type => Date)
+  public createdAt: Date;
+
+  @UpdateDateColumn()
+  @Field(type => Date)
+  public updatedAt: Date;
 }

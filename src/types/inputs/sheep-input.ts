@@ -4,10 +4,10 @@ import { Gender, Sheep } from '../../entities/sheep';
 @InputType()
 export class SheepInput implements Partial<Sheep> {
   @Field()
-  public tagId: string;
+  public tag: string;
 
   @Field()
-  public yearOfBirth: number;
+  public dateOfBirth: Date;
 
   @Field(type => Gender)
   public gender: Gender;

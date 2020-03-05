@@ -103,10 +103,12 @@
     "@accounts/password": "^0.23.0",
     "@accounts/server": "^0.23.0",
     "@accounts/typeorm": "^0.23.0",
+    "@auto-relay/typeorm": "^0.12.5",
     "@graphql-modules/core": "^0.7.14",
     "@sentry/node": "^5.10.2",
     "apollo-server": "^2.6.7",
     "apollo-server-express": "^2.7.0",
+    "auto-relay": "^0.12.5",
     "axios": "^0.19.0",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
@@ -116,6 +118,7 @@
     "form-data": "^2.5.0",
     "graphql": "^14.4.2",
     "graphql-iso-date": "^3.6.1",
+    "graphql-relay": "^0.6.0",
     "graphql-type-json": "^0.3.1",
     "graphql-upload": "9.0.0",
     "handlebars": "^4.1.2",
@@ -133,6 +136,7 @@
     "type-graphql": "^0.17.4",
     "typedi": "^0.8.0",
     "typeorm": "^0.2.22",
+    "typeorm-cursor-connection": "^0.6.0",
     "typeorm-typedi-extensions": "^0.2.3"
   }
 }
