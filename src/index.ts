@@ -9,7 +9,7 @@ if (process.env.SENTRY_DSN) {
   Sentry.init({ dsn: process.env.SENTRY_DSN });
 }
 
-createServer().then(({ app, server }) => {
+createServer().then(({ app, server }: any) => {
   // Start the server
   app.listen(port, () => {
     log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);

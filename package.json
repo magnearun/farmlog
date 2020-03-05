@@ -93,10 +93,12 @@
     "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
     "ts-jest": "^24.0.2",
+    "ts-loader": "6.2.1",
     "ts-node-dev": "^1.0.0-pre.40",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.2"
+    "typescript": "^3.8.3",
+    "webpack-cli": "3.3.10"
   },
   "dependencies": {
     "@accounts/graphql-api": "^0.23.0",
@@ -106,6 +108,9 @@
     "@auto-relay/typeorm": "^0.12.5",
     "@graphql-modules/core": "^0.7.14",
     "@sentry/node": "^5.10.2",
+    "@types/graphql-relay": "^0.4.11",
+    "@types/graphql-type-json": "^0.3.2",
+    "@types/mailgun-js": "^0.22.4",
     "apollo-server": "^2.6.7",
     "apollo-server-express": "^2.7.0",
     "auto-relay": "^0.12.5",

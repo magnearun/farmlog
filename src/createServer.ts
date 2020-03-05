@@ -24,7 +24,12 @@ import { Context } from './types/interfaces/Context';
 import { BaseRelayConnection } from './types/objects/BaseRelayConnection';
 import { log } from './utils/log';
 
-const { MAILGUN_API_KEY, MAILGUN_DOMAIN, NODE_ENV, DATABASE_URL } = process.env;
+const {
+  MAILGUN_API_KEY = '',
+  MAILGUN_DOMAIN = '',
+  NODE_ENV,
+  DATABASE_URL,
+} = process.env;
 
 console.log({ MAILGUN_API_KEY, MAILGUN_DOMAIN });
 
@@ -34,7 +39,7 @@ new AutoRelayConfig({
   extends: { connection: () => BaseRelayConnection },
 });
 
-let mailgun;
+let mailgun: any;
 
 if (MAILGUN_API_KEY && MAILGUN_API_KEY !== '') {
   mailgun = Mailgun({
