@@ -24,7 +24,7 @@ import { Context } from './types/interfaces/Context';
 import { BaseRelayConnection } from './types/objects/BaseRelayConnection';
 import { log } from './utils/log';
 
-const { MAILGUN_API_KEY, MAILGUN_DOMAIN } = process.env;
+const { MAILGUN_API_KEY, MAILGUN_DOMAIN, NODE_ENV, DATABASE_URL } = process.env;
 
 console.log({ MAILGUN_API_KEY, MAILGUN_DOMAIN });
 
@@ -47,21 +47,31 @@ export async function createServer() {
   TypeORM.useContainer(Container);
 
   try {
-    // create TypeORM connection
-    const connection = await TypeORM.createConnection({
-      type: 'postgres',
-      database: 'magnearun',
-      username: 'magnearun', // fill this with your username
-      // password: 'magnea90', // and password
-      port: 5432,
-      host: 'localhost',
-      entities: [...require('@accounts/typeorm').entities, Sheep],
-      synchronize: true,
-      logger: 'advanced-console',
-      logging: 'all',
-      // dropSchema: true,
-      // cache: true,
-    });
+    let connection;
+    if (NODE_ENV === 'development') {
+      // create TypeORM connection
+      connection = await TypeORM.createConnection({
+        type: 'postgres',
+        database: 'magnearun',
+        username: 'magnearun', // fill this with your username
+        // password: 'magnea90', // and password
+        port: 5432,
+        host: 'localhost',
+        entities: [...require('@accounts/typeorm').entities, Sheep],
+        synchronize: true,
+        logger: 'advanced-console',
+        logging: 'all',
+        // dropSchema: true,
+        // cache: true,
+      });
+    } else {
+      connection = await TypeORM.createConnection({
+        type: 'postgres',
+        url: DATABASE_URL,
+        entities: [...require('@accounts/typeorm').entities, Sheep],
+        synchronize: true,
+      });
+    }
 
     const tokenSecret = 'process.env.ACCOUNTS_SECRET' || 'change this in .env';
 
