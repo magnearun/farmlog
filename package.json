@@ -138,7 +138,7 @@
     "sofa-api": "^0.3.0",
     "swagger-ui-express": "^4.0.7",
     "turndown": "^5.0.3",
-    "type-graphql": "^0.17.4",
+    "type-graphql": "^0.17.6",
     "typedi": "^0.8.0",
     "typeorm": "^0.2.22",
     "typeorm-cursor-connection": "^0.6.0",
