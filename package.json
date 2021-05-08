@@ -126,7 +126,7 @@
     "graphql-relay": "^0.6.0",
     "graphql-type-json": "^0.3.1",
     "graphql-upload": "9.0.0",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.7.7",
     "https": "^1.0.0",
     "lodash": "^4.17.13",
     "mailchimp-api-v3": "^1.13.0",
