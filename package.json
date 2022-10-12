@@ -111,7 +111,7 @@
     "@types/graphql-relay": "^0.4.11",
     "@types/graphql-type-json": "^0.3.2",
     "@types/mailgun-js": "^0.22.4",
-    "apollo-server": "^2.6.7",
+    "apollo-server": "^2.25.4",
     "apollo-server-express": "^2.7.0",
     "auto-relay": "^0.12.5",
     "axios": "^0.19.0",
